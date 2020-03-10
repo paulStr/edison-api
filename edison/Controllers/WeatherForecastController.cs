@@ -1,9 +1,8 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace edison.Controllers
 {
@@ -23,6 +22,10 @@ namespace edison.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Gets the weather forecast for the next 5 days
+        /// </summary>
+        [Produces("application/json")]
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
